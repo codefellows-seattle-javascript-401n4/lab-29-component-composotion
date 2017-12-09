@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-class NoteCreateForm extends React.Component {
+import Note from '../../state/note';
+
+class NoteForm extends React.Component {
   constructor(props) {
     super(props);
     this.onChange = this.onChange.bind(this);
@@ -23,6 +25,7 @@ class NoteCreateForm extends React.Component {
     const {
       inputs,
       textAreaId,
+      note,
     } = this.props;
 
     return (
@@ -33,24 +36,28 @@ class NoteCreateForm extends React.Component {
             cols="50"
             id={textAreaId}
             onChange={this.onChange}
-          />
+          >
+            {note.content}
+          </textarea>
         </label>
         {inputs.map(ele =>
-          <input key={ele.key} type={ele.type} value={ele.value} />)}
+          <input key={ele.key} type={ele.type} value={ele.value} onClick={ele.handler} />)}
       </form>
     );
   }
 }
 
-NoteCreateForm.propTypes = {
+NoteForm.propTypes = {
   onSubmit: PropTypes.func.isRequired,
+  setFormState: PropTypes.func.isRequired,
   inputs: PropTypes.arrayOf(PropTypes.object).isRequired,
   textAreaId: PropTypes.string,
-
+  note: PropTypes.PropTypes.instanceOf(Note),
 };
 
-NoteCreateForm.defaultProps = {
+NoteForm.defaultProps = {
   textAreaId: 'content',
+  note: { content: null },
 };
 
-export default NoteCreateForm;
+export default NoteForm;

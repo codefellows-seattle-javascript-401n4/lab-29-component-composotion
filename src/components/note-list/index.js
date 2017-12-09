@@ -7,12 +7,18 @@ class NoteList extends React.Component {
   render() {
     const {
       noteList,
+      updateNote,
       deleteNote,
     } = this.props;
 
     const listItems = noteList.map(ele =>
       (
-        <NoteItem key={ele.id} note={ele} deleteNote={deleteNote} />
+        <NoteItem
+          key={ele.id}
+          note={ele}
+          updateNote={updateNote}
+          deleteNote={deleteNote}
+        />
       ));
     return (
       <ul>{listItems}</ul>
@@ -22,6 +28,7 @@ class NoteList extends React.Component {
 
 NoteList.propTypes = {
   noteList: PropTypes.arrayOf(PropTypes.object).isRequired,
+  updateNote: PropTypes.func.isRequired,
   deleteNote: PropTypes.func.isRequired,
 };
 
