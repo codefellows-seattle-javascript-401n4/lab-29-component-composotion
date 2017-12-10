@@ -1,0 +1,10 @@
+.note-item {
+  border: $gray solid 0.5px;
+  border-radius: 5px;
+  div {
+    padding: 2em;
+  }
+  input {
+    text-align: right;
+  }
+}

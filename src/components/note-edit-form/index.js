@@ -24,20 +24,8 @@ class NoteEditForm extends React.Component {
     this.cancel = this.cancel.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
     this.setFormState = this.setFormState.bind(this);
-    this.state = {
-      content: props.note.content,
-    };
   }
 
-  cancel() {
-    console.log(this.props);
-    const {
-      note,
-      updateNote,
-    } = this.props;
-    const updatedNote = Object.assign(note, { editing: false });
-    updateNote(note.id, updatedNote);
-  }
 
   onSubmit() {
     const {
@@ -52,6 +40,15 @@ class NoteEditForm extends React.Component {
     this.setState(newState);
   }
 
+  cancel() {
+    console.log(this.props);
+    const {
+      note,
+      updateNote,
+    } = this.props;
+    const updatedNote = Object.assign(note, { editing: false });
+    updateNote(note.id, updatedNote);
+  }
   render() {
     const {
       note,

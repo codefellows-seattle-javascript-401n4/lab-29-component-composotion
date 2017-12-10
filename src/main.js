@@ -49,16 +49,16 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="wrapper">
         <Header />
-        <div className="wrapper">
+        <div className="sidebar">
           <NoteCreateForm addNote={this.addNote} />
-          <NoteList
-            noteList={this.state.notes}
-            deleteNote={this.deleteNote}
-            updateNote={this.updateNote}
-          />
         </div>
+        <NoteList
+          noteList={this.state.notes}
+          deleteNote={this.deleteNote}
+          updateNote={this.updateNote}
+        />
       </div>
     );
   }

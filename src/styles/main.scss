@@ -1,14 +1,15 @@
-.wrapper {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 10px;
-  grid-auto-rows: minmax(100px, auto);
-  form {
-    grid-column: 1;
-    grid-row: 1 / 3;
-  }
-  ul {
-    grid-column: 2 / 4;
-    grid-row: 1 / 3;
-  }
-}
+
+// Variables
+@import './vars';
+
+// Mixins & Helpers
+@import "./reset";
+@import "./base.scss";
+
+// Themes
+
+// Components
+@import "./components/app",
+        "./components/note-item",
+        "./components/header",
+        "./components/form"

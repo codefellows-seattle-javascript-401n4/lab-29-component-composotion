@@ -29,8 +29,14 @@ class NoteItem extends React.Component {
       );
     }
     return (
-      <li>
-        <p data-noteid={note.id} onClick={this.startEditing}>{note.content}</p>
+      <li className="note-item">
+        <div
+          role="presentation"
+          data-noteid={note.id}
+          onClick={this.startEditing}
+        >
+          {note.content}
+        </div>
         <button data-noteid={note.id} onClick={this.onClick}>Delete</button>
       </li>
     );
@@ -49,7 +55,6 @@ class NoteItem extends React.Component {
 }
 
 NoteItem.propTypes = {
-  startEditing: PropTypes.func.isRequired,
   deleteNote: PropTypes.func.isRequired,
   updateNote: PropTypes.func.isRequired,
   note: PropTypes.instanceOf(Note).isRequired,

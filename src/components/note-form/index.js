@@ -30,7 +30,7 @@ class NoteForm extends React.Component {
 
     return (
       <form onSubmit={this.onSubmit}>
-        <label htmlFor="note">Note content
+        <label htmlFor="note">
           <textarea
             rows="10"
             cols="50"
@@ -38,10 +38,11 @@ class NoteForm extends React.Component {
             onChange={this.onChange}
             defaultValue={note.content}
           />
-
         </label>
-        {inputs.map(ele =>
-          <input key={ele.key} type={ele.type} value={ele.value} onClick={ele.handler} />)}
+        <div>
+          {inputs.map(ele =>
+            <input key={ele.key} type={ele.type} value={ele.value} onClick={ele.handler} />)}
+        </div>
       </form>
     );
   }
