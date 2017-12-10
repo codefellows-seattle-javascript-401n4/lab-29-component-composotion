@@ -32,13 +32,11 @@ class App extends React.Component {
     const {
       notes,
     } = this.state;
-    this.setState((currentState) => {
-      const oldNote = find(currentState.notes, { id });
-      const newNote = new Note(Object.assign(oldNote, newOpts));
-      const filteredNotes = reject(currentState.notes, { id });
-      const newNotes = [...filteredNotes, newNote];
-      return newNotes;
-    });
+    const oldNote = find(notes, { id });
+    const newNote = new Note(Object.assign(oldNote, newOpts));
+    const filteredNotes = reject(notes, { id });
+    const newNotes = [...filteredNotes, newNote];
+    this.setState({ notes: newNotes });
   }
 
   deleteNote(id) {

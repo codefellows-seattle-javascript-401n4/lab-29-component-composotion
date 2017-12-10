@@ -13,7 +13,7 @@ class NoteEditForm extends React.Component {
         key: 'cancel',
         type: 'button',
         value: 'Cancel',
-        handler: this.onClick,
+        handler: this.cancel.bind(this),
       },
       {
         key: 'submit-note',
@@ -21,16 +21,31 @@ class NoteEditForm extends React.Component {
         value: 'Submit',
         handler: noop,
       }];
+    this.cancel = this.cancel.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
     this.setFormState = this.setFormState.bind(this);
+    this.state = {
+      content: props.note.content,
+    };
+  }
+
+  cancel() {
+    console.log(this.props);
+    const {
+      note,
+      updateNote,
+    } = this.props;
+    const updatedNote = Object.assign(note, { editing: false });
+    updateNote(note.id, updatedNote);
   }
 
   onSubmit() {
     const {
       note,
+      updateNote,
     } = this.props;
     const updatedNote = Object.assign(this.state, { editing: false });
-    this.props.updateNote(note.id, updatedNote);
+    updateNote(note.id, updatedNote);
   }
 
   setFormState(newState) {

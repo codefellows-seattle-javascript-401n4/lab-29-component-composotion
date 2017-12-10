@@ -36,9 +36,9 @@ class NoteForm extends React.Component {
             cols="50"
             id={textAreaId}
             onChange={this.onChange}
-          >
-            {note.content}
-          </textarea>
+            defaultValue={note.content}
+          />
+
         </label>
         {inputs.map(ele =>
           <input key={ele.key} type={ele.type} value={ele.value} onClick={ele.handler} />)}
@@ -57,7 +57,7 @@ NoteForm.propTypes = {
 
 NoteForm.defaultProps = {
   textAreaId: 'content',
-  note: { content: null },
+  note: { content: '' },
 };
 
 export default NoteForm;
