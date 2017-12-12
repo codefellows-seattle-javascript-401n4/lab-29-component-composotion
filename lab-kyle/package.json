@@ -1,0 +1,19 @@
+{
+  "name": "lab-kyle",
+  "version": "0.0.1",
+  "description": "Lab-28",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/krichey15/lab-28-routing-testing.git"
+  },
+  "author": "richey.kyle.i@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/krichey15/lab-28-routing-testing/issues"
+  },
+  "homepage": "https://github.com/krichey15/lab-28-routing-testing#readme"
+}
