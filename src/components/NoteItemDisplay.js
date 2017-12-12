@@ -8,7 +8,7 @@ const NoteItemDisplay = ({content, removeItem, editNote}) => {
         <li>
             <div>{content}</div>
             <button onClick={editNote}>Update Me</button>
-            <button onClick={removeItem}>Delete Me</button>
+            <button id="deleteNote" onClick={removeItem}>Delete Me</button>
         </li>
     );
 }

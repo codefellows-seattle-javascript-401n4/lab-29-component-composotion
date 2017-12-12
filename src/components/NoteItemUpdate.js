@@ -18,8 +18,8 @@ const NoteItemUpdate= ({content, updateContents, cancelUpdate}) => {
     return(
         <li>
             <p>You have entered edit mode. Please enter new note content, or cancel.</p>
-            <input type="text" onChange={captureNoteInput}></input>
-            <button onClick={sendContentUp}>Update Note</button>
+            <input id="inputCapture" type="text" onChange={captureNoteInput}></input>
+            <button id="clickUpdate" onClick={sendContentUp}>Update Note</button>
             <button onClick={cancelUpdate}>Cancel Update</button>
         </li>
     );
