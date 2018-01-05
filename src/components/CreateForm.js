@@ -15,7 +15,7 @@ submitNote = (e) => {
   let newNote = {
     id: uuid(),
     content: this.state.content,
-    editing: true,
+    editing: false,
     completed: false
   }
   this.props.addNote(newNote);

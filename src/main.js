@@ -15,18 +15,41 @@ class Apps extends React.Component {
     this.state = {notes: []};
   }
 
+updateNote = (id, newContent) => {
+  let stateCopy = this.state;
+
+  stateCopy.notes.forEach((note,i) => {
+    if (note.id == id) stateCopy.notes[i].content = newContent;
+  });
+  this.setState(stateCopy);
+}
+
+editNote = (id) => {
+  let stateCopy = this.state;
+
+  stateCopy.notes.forEach((note,i) => {
+    if (note.id == id) stateCopy.notes[i].editing = !stateCopy.notes[i].editing;
+});
+    this.setState(stateCopy);
+}
+
 addNote = (note) => {
   this.setState({
     notes: [...this.state.notes, {...note}]
   });
 }
 
+deleteNote = (_id) => {
+  this.setState( {
+    notes: [...this.state.notes].filter(note => note.id !== _id)
+  });
+}
   render() {
     return (
       <div>
-        <h1>'React is confusing'</h1>
+        <h1>'React is still confusing'</h1>
         <CreateForm addNote={this.addNote} />
-        <NoteList notes={this.state.notes}/>
+        <NoteList notes={this.state.notes} edit={this.editNote} newContent={this.updateNote} deleteContent={this.deleteNote}/>
       </div>
     )
   }

@@ -6,10 +6,20 @@ class NoteItem extends React.Component {
     super(props);
     console.log(props);
   }
+tryEdit = () => {
+  this.props.edit(this.props.note.id);
+}
 
+deleteEdit = () => {
+  this.props.deleteContent(this.props.note.id);
+}
   render() {
     return (
-      <li>{this.props.note.content}</li>
+      <div>
+      <p>{this.props.note.content}</p>
+      <button onClick={this.tryEdit}>Edit</button>
+      <button onClick={this.deleteEdit}>Delete</button>
+      </div>
     )
   }
 }
