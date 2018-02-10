@@ -1,41 +1,24 @@
 'use strict';
-
-// Dynamic Script and Style Tags
 const HTMLPlugin = require('html-webpack-plugin');
 
-// Makes a separate CSS bundle
-const ExtractPlugin = reuqire ('extract-text-webpack-plugin');
-
 module.exports = {
-  
-  //Load this and everything it cares about
   entry: `${__dirname}/src/main.js`,
-  
-  devServer: {
-    historyApiFallback:true
+  devtool: 'cheap-eval-source-map',
+  devServer: { // for single page apps (SPA)
+    historyApiFallback: true, // server index.html for 404 routes
   },
-  
-  devTool: 'source-map',
-
-  // Stick it into the "path" folder with that file name
   output: {
+    path: `${__dirname}/build`,
     filename: 'bundle.[hash].js',
-    path: `${__dirname}/build`
   },
-
-  plugins: [
-    new HTMLPlugin({
-      template:`${__dirname}/src/index.html`
-    }),
-    new ExtractPlugin('bundle.[hash].css')
-  ],
-
+  plugins: [new HTMLPlugin()],
   module: {
     rules: [
-      // If it's a .js file not in node_modules, use the babel.loader
       {
-        test: /\.scss$/,
-      }
-    ]
-  }
-}
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: 'babel-loader',
+      },
+    ],
+  },
+};
