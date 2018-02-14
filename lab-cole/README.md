@@ -8,11 +8,7 @@ Enter in Command Line
 
 
 ## Program Issues
-* ...
-
-
-## Current Program Status
-* started over with starter code, developer code pending
+* Completely lost track of how my componants are interacting with each other, not sure how to implement update and delete functions to the update componant but the scaffolding is there.
 
 
 ## Developer Installs

@@ -1,11 +1,10 @@
 {
   "name": "lab-cole",
   "version": "1.0.0",
-  "description": "component-composition",
+  "description": "",
   "main": "index.js",
   "scripts": {
-    "watch": "webpack-dev-server --inline --hot",
-    "test": "jest"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
@@ -27,7 +26,7 @@
     "webpack-dev-server": "^2.9.2"
   },
   "devDependencies": {
-    "eslint": "^4.8.0",
-    "jest": "^21.2.1"
+    "eslint": "^4.7.1",
+    "jest": "^22.1.4"
   }
 }
