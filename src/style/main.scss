@@ -1,0 +1,47 @@
+// I like the idea of declaring a palette then working with those variables.
+//thanks John.
+
+$primary: #000;
+$secondary: #333;
+$nav-background: #777;
+$highlight: #fff;
+
+body{
+  background-color: $secondary;
+  color:$highlight;
+
+}
+
+nav{
+  margin:0;
+  padding:0;
+  width:100%;
+  background-color: $nav-background;
+  height: 200px;
+}
+
+ul{
+  display: flex;
+  list-style-type: none;
+}
+
+li{
+  height: 1.5em;
+  padding: .5em 1em;
+
+  ul{
+    display:none;
+  }
+
+  &:hover{
+    background-color: $primary;
+    color: $highlight;
+    display: block;
+    background-color: $secondary;
+
+
+    ul{
+    display: block;
+    }
+  }
+}
