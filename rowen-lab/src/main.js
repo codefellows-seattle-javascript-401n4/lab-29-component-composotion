@@ -3,8 +3,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './style/main.scss';
-import Form from './component/app/note/form.js';
-import List from './component/app/note/list.js';
+import Form from './component/note/form.js';
+import List from './component/note/list.js';
 
 
 const main = document.getElementById('root');
@@ -13,6 +13,10 @@ class Apps extends React.Component {
   constructor(props) {
     super(props);
     this.state = {notes: []};
+    this.updateNote = this.updateNote.bind(this);
+    this.editNote = this.editNote.bind(this);
+    this.addNote = this.addNote.bind(this);
+    this.deleteNote = this.deleteNote.bind(this);
   }
 
   updateNote(id, newContent) {
@@ -33,7 +37,7 @@ class Apps extends React.Component {
 
     addNote(note) {
       this.setState({
-        notes: [...this.state.notes, {...note}]
+        notes: [...this.state.notes, note]
       });
     }
 
@@ -48,7 +52,13 @@ class Apps extends React.Component {
       <div>
         <h1>'Notes: '</h1>
         <Form addNote={this.addNote} />
-        <List notes={this.state.notes} edit={this.editNote} newContent={this.updateNote} deleteContent={this.deleteNote}/>
+
+        <List
+        notes={this.state.notes}
+        edit={this.editNote}
+        newContent={this.updateNote}
+        deleteContent={this.deleteNote}/>
+
       </div>
     )
   }

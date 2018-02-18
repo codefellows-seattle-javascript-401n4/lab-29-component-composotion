@@ -9,10 +9,21 @@ class List extends React.Component {
   }
 
 renderNotes()  {
+  console.log('this.props.notes, line 12 list.js', this.props.notes);
   return this.props.notes.map(note => {
-    return (note.editing) ?
-    <NoteUpdateForm key={note.id} note={note} newContent={this.props.newContent} edit={this.props.edit}/> :
-    <Note key={note.id} note={note} edit={this.props.edit} deleteContent={this.props.deleteContent}/>;
+    return (note.editing)
+    ?
+    <NoteUpdateForm
+    key={note.id}
+    note={note}
+    newContent={this.props.newContent}
+    edit={this.props.edit}/>
+    :
+    <Note
+    key={note.id}
+    note={note}
+    edit={this.props.edit}
+    deleteContent={this.props.deleteContent}/>;
   });
 }
 

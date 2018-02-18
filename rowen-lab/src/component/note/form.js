@@ -7,16 +7,19 @@ class Form extends React.Component {
   constructor(props) {
     super(props);
     this.state={};
+    this.submitNote = this.submitNote.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
-submitNote(event) {
-  event.preventDefault();
+submitNote(e) {
+  e.preventDefault();
+
   let newNote = {
     id: uuid(),
     content: this.state.content,
     editing: false,
     completed: false
-  }
+  };
   this.props.addNote(newNote);
   console.log('new note:', newNote);
 }
@@ -25,6 +28,7 @@ handleChange(e) {
   this.setState({
     [e.target.id]: e.target.value
   });
+  console.log(this.state)
 }
   render() {
     return (
