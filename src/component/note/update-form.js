@@ -5,6 +5,10 @@ class UpdateNote extends React.Component {
   constructor(props) {
     super(props);
     this.state={};
+    this.handleChange = this.handleChange.bind(this);
+    this.newUpdate = this.newUpdate.bind(this);
+    this.componentDidUpdate = this.componentDidUpdate.bind(this);
+    this.cancelUpdate = this.cancelUpdate.bind(this);
   }
 
   newUpdate() {
@@ -25,7 +29,7 @@ class UpdateNote extends React.Component {
   cancelUpdate() {
     this.props.edit(this.props.note.id);
   }
-  
+
   render() {
     return (
       <div>

@@ -33,7 +33,7 @@ handleChange(e) {
   render() {
     return (
       <div>
-        <h2>'You may enter notes below'</h2>
+        <h2>You may enter notes below</h2>
         <form>
           <input id='content' type="text" onChange={this.handleChange} />
           <button onClick={this.submitNote}>Submit</button>

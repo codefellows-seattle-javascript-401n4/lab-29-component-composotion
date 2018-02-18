@@ -6,6 +6,7 @@ import UpdateForm from './update-form';
 class List extends React.Component {
   constructor(props) {
     super(props);
+    this.renderNotes = this.renderNotes.bind(this);
   }
 
 renderNotes()  {
@@ -13,7 +14,7 @@ renderNotes()  {
   return this.props.notes.map(note => {
     return (note.editing)
     ?
-    <NoteUpdateForm
+    <UpdateForm
     key={note.id}
     note={note}
     newContent={this.props.newContent}
@@ -30,7 +31,7 @@ renderNotes()  {
   render() {
     return (
       <div>
-        <h2>'Rendered Notes: '</h2>
+        <h2>Rendered Notes: </h2>
           <ul>{this.renderNotes()}</ul>
         </div>
     )

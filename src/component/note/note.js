@@ -4,6 +4,8 @@ import ReactDOM from 'react-dom';
 class Note extends React.Component {
   constructor(props) {
     super(props);
+  this.editNote = this.editNote.bind(this);
+  this.noEdit = this.noEdit.bind(this);
 
   }
   editNote() {

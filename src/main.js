@@ -1,11 +1,14 @@
 'use strict';
 
+import './style/main.scss';
+
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './style/main.scss';
+import {BrowserRouter} from 'react-router-dom'
+import {Provider} from 'react-redux';
+
 import Form from './component/note/form.js';
 import List from './component/note/list.js';
-
 
 const main = document.getElementById('root');
 
@@ -50,7 +53,7 @@ class Apps extends React.Component {
   render() {
     return (
       <div>
-        <h1>'Notes: '</h1>
+        <h1>Notes: </h1>
         <Form addNote={this.addNote} />
 
         <List
